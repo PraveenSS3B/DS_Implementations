@@ -24,15 +24,15 @@ public class MyLinkedList {
 
 		ll.display();
 
-		ll.insert(40, 2);
+		ll.insert(40, 3);
 
 		ll.display();
 
-		ll.insert(50, 2);
+		ll.insert(25, 2);
 
 		ll.display();
 
-		ll.insert(0, 0);
+		ll.delete(2);
 
 		ll.display();
 
@@ -63,7 +63,7 @@ public class MyLinkedList {
 
 		int currIndex = 0;
 
-		if (index == currIndex) {
+		if (index == 0) {
 			prepend(data);
 			return;
 		}
@@ -78,6 +78,24 @@ public class MyLinkedList {
 			}
 
 			curr = curr.next;
+		}
+	}
+
+	public void delete(int index) {
+		Node current = head;
+
+		int currentIndex = 0;
+
+		if (current == null)
+			return;
+
+		while (currentIndex != index) {
+			if (currentIndex++ == index - 1) {
+				current.next = current.next.next;
+				return;
+			}
+
+			current = current.next;
 		}
 	}
 
