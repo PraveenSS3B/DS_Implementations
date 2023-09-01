@@ -22,8 +22,17 @@ public class MyLinkedList {
 		ll.add(20);
 		ll.add(30);
 
-		ll.prepend(-10);
-		ll.prepend(-20);
+		ll.display();
+
+		ll.insert(40, 2);
+
+		ll.display();
+
+		ll.insert(50, 2);
+
+		ll.display();
+
+		ll.insert(0, 0);
 
 		ll.display();
 
@@ -47,6 +56,44 @@ public class MyLinkedList {
 		current.next = newNode;
 	}
 
+	public void insert(int data, int index) {
+		Node newNode = new Node(data);
+
+		Node curr = head;
+
+		int currIndex = 0;
+
+		if (index == currIndex) {
+			prepend(data);
+			return;
+		}
+
+		while (index != currIndex && curr != null) {
+
+			if (currIndex++ == index - 1) {
+				Node temp = curr.next;
+				curr.next = newNode;
+				newNode.next = temp;
+				return;
+			}
+
+			curr = curr.next;
+		}
+	}
+
+	public void pop() {
+		Node current = head;
+
+		if (current == null)
+			return;
+
+		while (current.next.next != null) {
+			current = current.next;
+		}
+
+		current.next = null;
+	}
+
 	public void prepend(int data) {
 		Node newNode = new Node(data);
 
@@ -61,6 +108,12 @@ public class MyLinkedList {
 
 	}
 
+	public void shift() {
+		Node current = head.next;
+
+		head = current;
+	}
+
 	public void display() {
 		Node current = head;
 
@@ -68,6 +121,8 @@ public class MyLinkedList {
 			System.out.print(current.data + " ");
 			current = current.next;
 		}
+
+		System.out.println();
 	}
 
 }
