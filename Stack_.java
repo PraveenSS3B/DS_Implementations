@@ -35,6 +35,8 @@ public class Stack_ {
 		for (int i = top; i >= 0; i--) {
 			System.out.println(stack[i]);
 		}
+		
+		System.out.println("-----------------");
 	}
 
 	public static void main(String[] args) {
@@ -47,11 +49,8 @@ public class Stack_ {
 		s.push(50);
 
 		s.print();
-		System.out.println("---------------");
 
 		System.out.println("element popped : " + s.pop());
-
-		System.out.println("---------------");
 
 		s.print();
 
