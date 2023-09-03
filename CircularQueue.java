@@ -26,6 +26,10 @@ public class CircularQueue {
 		queue = new int[size];
 	}
 
+	/**
+	 * @param data that fills the Circular queue
+	 * @throws BadCircularQueueOperationException if Circular Queue is Full in Size.
+	 */
 	public void add(int data) throws BadCircularQueueOperationException {
 		if (size == count++)
 			throw new BadCircularQueueOperationException("Circular Queue is Full!");
@@ -35,6 +39,11 @@ public class CircularQueue {
 
 	}
 
+	/**
+	 * @return This Method returns first element from Circular queue and also
+	 *         removes it.
+	 * @throws BadCircularQueueOperationException if Circular Queue is Empty
+	 */
 	public int poll() throws BadCircularQueueOperationException {
 
 		if (isEmpty())
@@ -45,6 +54,10 @@ public class CircularQueue {
 		return queue[front];
 	}
 
+	/**
+	 * @return This Method returns first element from Circular queue
+	 * @throws BadCircularQueueOperationException if Circular Queue is Empty
+	 */
 	public int peek() throws BadCircularQueueOperationException {
 
 		if (isEmpty())
@@ -53,10 +66,16 @@ public class CircularQueue {
 		return queue[front];
 	}
 
+	/**
+	 * @return checks it the Circular queue is empty or not
+	 */
 	public boolean isEmpty() {
 		return count == 0;
 	}
 
+	/**
+	 * Prints the entire Circular queue.
+	 */
 	public void print() throws BadCircularQueueOperationException {
 		if (isEmpty())
 			throw new BadCircularQueueOperationException("Queue is Empty!");
@@ -87,7 +106,7 @@ public class CircularQueue {
 		cq.add(50);
 
 		cq.print();
-		
+
 		System.out.println("Peek: " + cq.peek());
 
 	}
