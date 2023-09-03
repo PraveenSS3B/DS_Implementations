@@ -45,6 +45,14 @@ public class CircularQueue {
 		return queue[front];
 	}
 
+	public int peek() throws BadCircularQueueOperationException {
+
+		if (isEmpty())
+			throw new BadCircularQueueOperationException("Unable to Peek: Queue is Empty!");
+
+		return queue[front];
+	}
+
 	public boolean isEmpty() {
 		return count == 0;
 	}
@@ -71,7 +79,7 @@ public class CircularQueue {
 		for (int i = 0; i < cq.size; i++) {
 			System.out.println("Polled: " + cq.poll());
 		}
-		
+
 		cq.add(10);
 		cq.add(20);
 		cq.add(30);
@@ -79,6 +87,8 @@ public class CircularQueue {
 		cq.add(50);
 
 		cq.print();
+		
+		System.out.println("Peek: " + cq.peek());
 
 	}
 
