@@ -2,7 +2,7 @@ package in.DS_Implementations;
 
 public class Queue {
 
-	private class BadQueueOperationException extends Exception {
+	public class BadQueueOperationException extends Exception {
 
 		private static final long serialVersionUID = -1886350312664230792L;
 

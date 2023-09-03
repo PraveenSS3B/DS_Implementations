@@ -2,7 +2,7 @@ package in.DS_Implementations;
 
 public class Stack_ {
 
-	private class BadStackOperationException extends Exception {
+	public class BadStackOperationException extends Exception {
 
 		private static final long serialVersionUID = -2107592072549488824L;
 
