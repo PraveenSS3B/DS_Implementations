@@ -80,6 +80,19 @@ public class MyLinkedList {
 			curr = curr.next;
 		}
 	}
+	
+	public int size() {
+		Node currNode = head;
+
+		int size = 0;
+
+		while (currNode != null) {
+			size++;
+			currNode = currNode.next;
+		}
+
+		return size;
+	}
 
 	public void delete(int index) {
 		Node current = head;
@@ -88,6 +101,11 @@ public class MyLinkedList {
 
 		if (current == null)
 			return;
+
+		if (index == 0) {
+			head = current.next;
+			return;
+		}
 
 		while (currentIndex != index) {
 			if (currentIndex++ == index - 1) {
