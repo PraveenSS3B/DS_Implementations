@@ -67,6 +67,44 @@ public class DoublyLinkedList {
 
 	}
 
+	public void insert(int index, int data) {
+		if (head == null || tail == null) {
+			System.out.println("Doubly Linked List is Empty!");
+			return;
+		}
+
+		if (index == 0) {
+			prepend(data);
+			return;
+		}
+
+		if (index == size() - 1) {
+			add(data);
+			return;
+		}
+
+		int currIndex = 0;
+
+		Node newNode = new Node(data);
+		Node currNode = head;
+
+		while (currIndex != index) {
+			if (currIndex++ == index - 1) {
+
+				Node pushNode = currNode.next;
+
+				currNode.next = newNode;
+				currNode = newNode.prev;
+
+				pushNode.prev = newNode;
+				newNode.next = pushNode;
+				return;
+
+			}
+			currNode = currNode.next;
+		}
+	}
+
 	public void remove(int index) {
 		if (head == null || tail == null) {
 			System.out.println("Doubly Linked List is Empty!");
@@ -156,15 +194,14 @@ public class DoublyLinkedList {
 
 		list.printForward();
 
-		list.remove(0);
+		list.insert(1, -10);
 
 		list.printForward();
-		list.printBackward();
-
-		list.remove(list.size() - 1);
-
+		
+		list.insert(4, -50);
+		list.insert(3, -10);
+		
 		list.printForward();
-		list.printBackward();
 
 	}
 
