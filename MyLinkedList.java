@@ -80,7 +80,7 @@ public class MyLinkedList {
 			curr = curr.next;
 		}
 	}
-	
+
 	public int size() {
 		Node currNode = head;
 
@@ -104,6 +104,11 @@ public class MyLinkedList {
 
 		if (index == 0) {
 			head = current.next;
+			return;
+		}
+
+		if (index == size() - 1) {
+			pop();
 			return;
 		}
 
