@@ -94,7 +94,7 @@ public class DoublyLinkedList {
 				Node pushNode = currNode.next;
 
 				currNode.next = newNode;
-				currNode = newNode.prev;
+				newNode.prev = currNode;
 
 				pushNode.prev = newNode;
 				newNode.next = pushNode;
@@ -193,15 +193,13 @@ public class DoublyLinkedList {
 		list.add(50);
 
 		list.printForward();
+		list.printBackward();
 
 		list.insert(1, -10);
 
 		list.printForward();
-		
-		list.insert(4, -50);
-		list.insert(3, -10);
-		
-		list.printForward();
+
+		list.printBackward();
 
 	}
 
