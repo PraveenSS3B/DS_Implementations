@@ -1,5 +1,7 @@
 package in.DS_Implementations;
 
+import in.DS_Implementations.Queue.BadQueueOperationException;
+
 public class MyLinkedList {
 
 	class Node {
@@ -38,6 +40,9 @@ public class MyLinkedList {
 
 	}
 
+	/**
+	 * @param data that fills the Node
+	 */
 	public void add(int data) {
 
 		Node newNode = new Node(data);
@@ -56,6 +61,11 @@ public class MyLinkedList {
 		current.next = newNode;
 	}
 
+	/**
+	 * 
+	 * @param data  - that node needs to get filled
+	 * @param index - that fills data at this index
+	 */
 	public void insert(int data, int index) {
 		Node newNode = new Node(data);
 
@@ -81,6 +91,10 @@ public class MyLinkedList {
 		}
 	}
 
+	/**
+	 * 
+	 * @return returns size of the linked list
+	 */
 	public int size() {
 		Node currNode = head;
 
@@ -94,6 +108,9 @@ public class MyLinkedList {
 		return size;
 	}
 
+	/**
+	 * @param index - the node at this index will be deleted.
+	 */
 	public void delete(int index) {
 		Node current = head;
 
@@ -122,6 +139,9 @@ public class MyLinkedList {
 		}
 	}
 
+	/**
+	 * Pops the last node of the linked list.
+	 */
 	public void pop() {
 		Node current = head;
 
@@ -135,6 +155,10 @@ public class MyLinkedList {
 		current.next = null;
 	}
 
+	/**
+	 * @param data - adds new node at front of the linked list using the data
+	 *             provided
+	 */
 	public void prepend(int data) {
 		Node newNode = new Node(data);
 
@@ -149,12 +173,18 @@ public class MyLinkedList {
 
 	}
 
+	/**
+	 * Removes the first node in the list
+	 */
 	public void shift() {
 		Node current = head.next;
 
 		head = current;
 	}
 
+	/**
+	 * displays the entire linked list..
+	 */
 	public void display() {
 		Node current = head;
 
