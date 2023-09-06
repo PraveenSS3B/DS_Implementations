@@ -1,8 +1,15 @@
 package in.DS_Implementations;
 
-import in.DS_Implementations.Queue.BadQueueOperationException;
-
 public class MyLinkedList {
+
+	public class BadLinkedListOperationException extends Exception {
+
+		private static final long serialVersionUID = -175137782671626576L;
+
+		private BadLinkedListOperationException(String msg) {
+			super(msg);
+		}
+	}
 
 	class Node {
 		int data;
@@ -16,7 +23,7 @@ public class MyLinkedList {
 
 	Node head;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws BadLinkedListOperationException {
 
 		MyLinkedList ll = new MyLinkedList();
 
@@ -110,15 +117,16 @@ public class MyLinkedList {
 
 	/**
 	 * @param index - the node at this index will be deleted.
+	 * @throws BadLinkedListOperationException if list is empty!
 	 */
-	public void delete(int index) {
+	public void delete(int index) throws BadLinkedListOperationException {
 		Node current = head;
 
 		int currentIndex = 0;
 
-		if (current == null)
-			return;
-
+		if (current == null) {
+			throw new BadLinkedListOperationException("List is Empty!");
+		}
 		if (index == 0) {
 			head = current.next;
 			return;
@@ -141,12 +149,14 @@ public class MyLinkedList {
 
 	/**
 	 * Pops the last node of the linked list.
+	 * 
+	 * @throws BadLinkedListOperationException if list is empty!
 	 */
-	public void pop() {
+	public void pop() throws BadLinkedListOperationException {
 		Node current = head;
 
 		if (current == null)
-			return;
+			throw new BadLinkedListOperationException("List is Empty!");
 
 		while (current.next.next != null) {
 			current = current.next;
@@ -175,8 +185,12 @@ public class MyLinkedList {
 
 	/**
 	 * Removes the first node in the list
+	 * 
+	 * @throws BadLinkedListOperationException if list is empty!
 	 */
-	public void shift() {
+	public void shift() throws BadLinkedListOperationException {
+		if (head == null)
+			throw new BadLinkedListOperationException("List is Empty!");
 		Node current = head.next;
 
 		head = current;
@@ -184,8 +198,12 @@ public class MyLinkedList {
 
 	/**
 	 * displays the entire linked list..
+	 * @throws BadLinkedListOperationException if list is empty!
 	 */
-	public void display() {
+	public void display() throws BadLinkedListOperationException {
+
+		if (head == null)
+			throw new BadLinkedListOperationException("List is Empty!");
 		Node current = head;
 
 		while (current != null) {
