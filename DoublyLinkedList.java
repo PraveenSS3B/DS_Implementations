@@ -16,6 +16,9 @@ public class DoublyLinkedList {
 	Node head;
 	Node tail;
 
+	/**
+	 * @return returns size of the Doubly linked list
+	 */
 	public int size() {
 		Node currNode = head;
 
@@ -29,6 +32,9 @@ public class DoublyLinkedList {
 		return size;
 	}
 
+	/**
+	 * @param adds the Node at the end of the List with the provided data
+	 */
 	public void add(int data) {
 		Node newNode = new Node(data);
 		if (head == null) {
@@ -47,6 +53,10 @@ public class DoublyLinkedList {
 		tail = newNode;
 	}
 
+	/**
+	 * @param data - adds new node at front of the Doubly linked list using the data
+	 *             provided
+	 */
 	public void prepend(int data) {
 		Node newNode = new Node(data);
 
@@ -67,6 +77,10 @@ public class DoublyLinkedList {
 
 	}
 
+	/**
+	 * @param data  - that node needs to get filled
+	 * @param index - that fills data at this index
+	 */
 	public void insert(int index, int data) {
 		if (head == null || tail == null) {
 			System.out.println("Doubly Linked List is Empty!");
@@ -105,6 +119,9 @@ public class DoublyLinkedList {
 		}
 	}
 
+	/**
+	 * @param index - the node at this index will be deleted.
+	 */
 	public void remove(int index) {
 		if (head == null || tail == null) {
 			System.out.println("Doubly Linked List is Empty!");
@@ -139,6 +156,9 @@ public class DoublyLinkedList {
 		}
 	}
 
+	/**
+	 * Removes the first node in the Doubly Linked List
+	 */
 	public int shift() {
 		int shifted = head.data;
 
@@ -149,6 +169,9 @@ public class DoublyLinkedList {
 		return shifted;
 	}
 
+	/**
+	 * Pops the last node of the Doubly linked list.
+	 */
 	public int pop() {
 
 		int popped = tail.data;
@@ -160,6 +183,9 @@ public class DoublyLinkedList {
 		return popped;
 	}
 
+	/**
+	 * displays the entire linked list from left to right
+	 */
 	public void printForward() {
 		Node currNode = head;
 
@@ -172,6 +198,9 @@ public class DoublyLinkedList {
 
 	}
 
+	/**
+	 * displays the entire linked list from right to left
+	 */
 	public void printBackward() {
 		Node currNode = tail;
 
