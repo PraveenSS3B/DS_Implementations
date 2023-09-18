@@ -2,6 +2,9 @@ package in.DS_Implementations;
 
 public class Stack_ {
 
+	/**
+	 * BadStackOperationException occurs when user does the invalid stack operations
+	 */
 	public class BadStackOperationException extends Exception {
 
 		private static final long serialVersionUID = -2107592072549488824L;
